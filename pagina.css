@@ -1,0 +1,1956 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F7F5;
+    color: #333333;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* Base más grande: como casi todo el sitio usa "em", esto sube de
+       forma proporcional el tamaño de TODO el texto (títulos, párrafos
+       y, sobre todo, la letra pequeña de tarjetas y tablas) */
+    font-size: 19px;
+}
+
+@media (max-width: 480px) {
+    body {
+        /* En pantallas muy pequeñas mantenemos un poco más de margen
+           para que los textos no se corten ni se amontonen */
+        font-size: 17px;
+    }
+}
+
+/* Barra superior */
+.top-search {
+    background: #1B3818; 
+    color: #FFFFFF;
+    padding: 10px 50px; 
+    font-size: 0.96em;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 12px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+/* --- HEADER ULTRA INTERACTIVO Y TEMÁTICO --- */
+header {
+    background: #FFFFFF;
+    padding: 35px 60px; 
+    display: flex;
+    flex-direction: row; /* Logo a la izquierda, pestañas al lado derecho */
+    justify-content: space-between; 
+    align-items: center;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    border-bottom: 5px solid #032b03; 
+    overflow: hidden; 
+}
+
+/* --- CAPA DE ELEMENTOS VECTORIALES DE COMIDA FLOTANTE --- */
+.food-bg {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1; /* Se mantiene detrás del texto */
+    opacity: 0.85; /* Visibles, vivos y coloridos */
+}
+
+/* Este ícono (cereza) es el único clicleable: lleva al panel de administración.
+   Sin ningún efecto visual que lo delate — se ve igual a los demás iconos decorativos */
+.food-bg-link {
+    pointer-events: auto;
+    cursor: pointer;
+    display: block;
+    z-index: 20;
+}
+
+/* 1. Canasta de vegetales saludables (Izquierda arriba) */
+.img-basket {
+    left: 16%; top: 2%; width: 100px; height: 100px;
+    background-image: url('https://png.pngtree.com/png-clipart/20250417/original/pngtree-cartoon-vegetable-clipart-for-kids-png-image_20772566.png');
+    animation: comidaFlotaSube 2.5s ease-in-out infinite alternate;
+}
+
+/* 2. Manzana roja con carita feliz (Izquierda abajo) */
+.img-apple-happy {
+    left: 31%; top: 55%; width: 150px; height: 150px;
+    background-image: url('https://media.istockphoto.com/id/1062342358/es/vector/colecci%C3%B3n-de-car%C3%A1cter-de-frutas-y-verduras.jpg?s=612x612&w=0&k=20&c=f2ibcXv7BJcFt3R50gUBqRqtsQ3TvfPBAGsplvjKBXk=');
+    animation: comidaBalanceo 3.5s ease-in-out infinite alternate;
+}
+
+/* 3. Brócoli animado tierno (Centro arriba) */
+.img-broccoli-happy {
+    left: 41%; top: 10%; width: 100px; height: 100px;
+    background-image: url('https://img.magnific.com/vector-gratis/personaje-comico-verduras-frescas-rabano_18591-82865.jpg?semt=ais_hybrid&w=740&q=80');
+    animation: comidaFlotaSube 5s ease-in-out infinite alternate-reverse;
+}
+
+/* 4. Zanahoria saltarina con carita (Centro abajo) */
+.img-carrot-happy {
+    left: 50%; top: 55%; width: 100px; height: 100px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGMSPM_Ib5hy2l5VMZniHNjrO1Fm_7YrMkWA&s');
+
+}
+
+/* 5. Personaje Chefcito de la salud (Centro-derecha arriba) */
+.img-chef-happy {
+    left: 59%; top: 12%; width: 100px; height: 100px;
+    background-image: url('https://i.pinimg.com/222x/e7/46/3b/e7463bf67da679a44c6ef91df000bf46.jpg');
+    animation: comidaFlotaSube 4.2s ease-in-out infinite alternate;
+}
+
+/* 6. Tomate gordo animado (Derecha abajo) */
+.img-tomato-happy {
+    left: 67%; top: 55%; width: 100px; height: 100px;
+    background-image: url('https://img.magnific.com/vector-premium/coleccion-frutas-icona-vectorial-dibujos-animados-ilustracion-alimentos-icona-naturaleza-concepto-vector-premium-aislado_1128391-7017.jpg?semt=ais_hybrid&w=740&q=80');
+    animation: comidaBalanceo 4s ease-in-out infinite alternate-reverse;
+}
+
+/* 7. Naranja cítrica sonriente (Extremo derecho arriba) */
+.img-orange-happy {
+    left: 75%; top: 10%; width: 100px; height: 100px;
+    background-image: url('https://thumbs.dreamstime.com/b/icono-de-zanahoria-verdura-dibujos-animados-personaje-kawaii-con-ojos-sonrientes-manos-patas-educaci%C3%B3n-infantil-colecci%C3%B3n-299935211.jpg');
+    animation: comidaFlotaSube 3.8s ease-in-out infinite alternate-reverse;
+}
+
+/* 8. Banano con gafas y carita alegre (Izquierda centro, cerca al logo) */
+.img-banana-happy {
+    left: 16%; top: 52%; width: 100px; height: 100px;
+    background-image: url('https://media.webdelmaestro.com/uploads/2024/03/cerezas-.jpg?ssl=1');
+    animation: comidaBalanceo 4.5s ease-in-out infinite alternate;
+}
+
+/* --- REGLAS DE ANIMACIÓN INTERACTIVA --- */
+@keyframes comidaFlotaSube {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-15px) scale(1.05); }
+}
+@keyframes comidaGiraLento {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes comidaBalanceo {
+    0% { transform: rotate(-7deg) translateY(0); }
+    100% { transform: rotate(7deg) translateY(-5px); }
+}
+
+/* --- CONTENEDOR LOGO GIGANTE IZQUIERDA --- */
+.logo {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 20px;
+    z-index: 5;
+    position: relative;
+    margin-bottom: 0; /* Remueve el margen innecesario */
+}
+
+.logo img {
+    height: 150px; /* Agrandado masivo solicitado */
+    width: 150px; 
+    border-radius: 28px; 
+    object-fit: cover; 
+    margin-bottom: 0;
+    border: 5px solid #c5bb8a; 
+    box-shadow: 0 12px 28px rgba(56, 97, 52, 0.22); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo img:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 38px; 
+    color: #386134; 
+    font-weight: 800;
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+
+/* --- MENÚ DE PESTAÑAS AL LADO DERECHO --- */
+nav {
+    z-index: 5;
+    position: center;
+    min-width: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; 
+    gap: 12px; 
+}
+
+nav ul li a {
+    color: #333333; 
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 1.05em;
+    padding: 12px 24px; 
+    border-radius: 16px; 
+    background: #F0F4F1; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-bottom: none !important; 
+}
+
+nav ul li a:hover {
+    color: #FFFFFF;
+    background-color: #447B3E; 
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(68, 123, 62, 0.25);
+}
+
+/* --- Área del menú: nav + botones de acceso, agrupados al lado derecho --- */
+.nav-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    z-index: 5;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 24px 6px 6px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95em;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.auth-btn-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 1.05em;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.auth-btn-login {
+    background: linear-gradient(135deg, #FFC933, #E2A000);
+    color: #2D4D29;
+    border: none;
+    box-shadow: 0 6px 14px rgba(226, 160, 0, 0.35);
+}
+
+.auth-btn-login .auth-btn-icono {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.auth-btn-login:hover {
+    background: linear-gradient(135deg, #FFD861, #FFB800);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(226, 160, 0, 0.45);
+}
+
+.auth-btn-registro {
+    background-color: #EEF6EC;
+    color: #386134;
+    border: 2px solid #386134;
+    box-shadow: 0 4px 10px rgba(56, 97, 52, 0.1);
+}
+
+.auth-btn-registro .auth-btn-icono {
+    background: rgba(56, 97, 52, 0.12);
+}
+
+.auth-btn-registro:hover {
+    background-color: #386134;
+    color: #FFFFFF;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(56, 97, 52, 0.3);
+}
+
+.auth-btn-registro:hover .auth-btn-icono {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.auth-btn:focus-visible {
+    outline: 3px solid #E2A000;
+    outline-offset: 2px;
+}
+
+/* --- Botón de hamburguesa (antes no tenía estilo propio) ---
+   Oculto en escritorio; solo aparece en pantallas angostas, al costado
+   derecho del encabezado, junto a los botones de acceso. */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 20;
+    flex-shrink: 0;
+}
+
+.mobile-menu-btn .barra {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #386134;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-btn.open .barra:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.mobile-menu-btn.open .barra:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.open .barra:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   RESPONSIVE GENERAL DEL SITIO (hero, contenedores, formularios, chatbot)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 90px 15px;
+    }
+    .hero h2 {
+        font-size: 2.2em;
+    }
+    .hero p {
+        font-size: 1.05em;
+        margin-bottom: 25px;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .button.secondary {
+        margin-left: 0;
+    }
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .container {
+        padding: 35px 15px;
+    }
+    .form-container {
+        padding: 25px 20px;
+    }
+    .chatbot-container {
+        right: 12px;
+        bottom: 12px;
+    }
+    .chatbot-box {
+        width: calc(100vw - 24px);
+        max-width: 350px;
+        height: min(70vh, 480px);
+        right: -6px;
+    }
+    .top-search {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero h2 {
+        font-size: 1.7em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    .chatbot-toggle {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1150px) {
+    header {
+        padding: 20px 15px;
+    }
+    nav {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Oculta la barra de scroll pero deja el gesto de deslizar */
+        scrollbar-width: thin;
+    }
+    nav ul {
+        flex-wrap: nowrap;
+        width: max-content;
+        padding-bottom: 6px;
+    }
+    nav ul li {
+        flex-shrink: 0;
+    }
+    nav ul li a {
+        padding: 9px 14px;
+        font-size: 0.92em;
+        white-space: nowrap;
+    }
+    .usuario-nav .nombre-usuario-nav {
+        max-width: 70px;
+    }
+    .auth-btn {
+        padding: 5px 18px 5px 5px;
+        font-size: 0.88em;
+    }
+    .auth-btn-icono {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* --- A partir de aquí el menú de texto se oculta y se abre como
+   desplegable con el botón de hamburguesa; login/registro se quedan
+   siempre visibles al costado --- */
+@media (max-width: 900px) {
+    header {
+        flex-wrap: nowrap;
+    }
+    .nav-area {
+        gap: 12px;
+    }
+    #main-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FFFFFF;
+        box-shadow: 0 14px 25px rgba(0, 0, 0, 0.15);
+        padding: 15px 20px 20px;
+        z-index: 15;
+        max-width: none;
+        overflow-x: visible;
+    }
+    #main-navigation.open {
+        display: block;
+    }
+    #main-navigation ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        padding-bottom: 0;
+    }
+    #main-navigation ul li a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .mobile-menu-btn {
+        display: flex;
+    }
+    .auth-btn {
+        padding: 5px 16px 5px 5px;
+        font-size: 0.85em;
+    }
+    .auth-btn-icono {
+        width: 26px;
+        height: 26px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 22px;
+    }
+    .logo img {
+        height: 60px;
+        width: 60px;
+        border-radius: 16px;
+    }
+    .auth-btn {
+        padding: 4px 12px 4px 4px;
+        font-size: 0.75em;
+        gap: 6px;
+    }
+    .auth-btn-icono {
+        width: 22px;
+        height: 22px;
+        font-size: 0.85em;
+    }
+    .auth-buttons {
+        gap: 6px;
+    }
+}
+.tab-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-section:target {
+    display: block;
+}
+
+#inicio:not(:target) ~ #registro:not(:target) ~ #login:not(:target) ~ #menu:not(:target) #inicio-content,
+#inicio:target {
+    display: block;
+
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.hero {
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.hero h2 {
+    font-size: 3.8em;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f5f5f5;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button.primary {
+    background-color: #E2A000;
+    color: #386134;
+    border: none;
+}
+
+.button.primary:hover {
+    background-color: #FFB800;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(226, 160, 0, 0.4);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+.button.secondary:hover {
+    background-color: white;
+    color: #386134;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h3 {
+    font-size: 2.8em;
+    text-align: center;
+    color: #386134;
+    margin-bottom: 40px;
+}
+
+.features, .menu-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* ==========================================================================
+   FLIPCARDS — núcleo reutilizable (inicio, menú y nutrición)
+   ========================================================================== */
+.flip-card {
+    perspective: 1400px;
+    cursor: pointer;
+    outline: none;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.15, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-hint {
+    display: block;
+    font-size: 0.85em;
+    margin-top: auto;
+    padding-top: 12px;
+    opacity: 0.75;
+}
+
+.flip-card:focus-visible .flip-card-front,
+.flip-card:focus-visible .flip-card-back {
+    box-shadow: 0 0 0 3px #E2A000;
+}
+
+/* --- Tarjetas "¿Qué ofrecemos?" (inicio) --- */
+.feature-flip {
+    height: 320px;
+}
+
+.feature-flip .flip-card-front,
+.feature-flip .flip-card-back {
+    padding: 35px;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-flip .flip-card-front {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-bottom: 5px solid #447B3E;
+    transition: box-shadow 0.3s ease;
+}
+
+.feature-flip:hover .flip-card-front {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-flip .flip-card-back {
+    background: linear-gradient(145deg, #447B3E, #2D4D29);
+    border-bottom: 5px solid #E2A000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.feature-flip .flip-card-front h4 {
+    color: #386134;
+    font-size: 1.5em;
+    margin-bottom: 0;
+}
+
+.feature-flip .flip-card-back h4 {
+    color: #ffffff;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.feature-flip .flip-card-back p {
+    color: #eaf3e8;
+    line-height: 1.5;
+}
+
+/* Estas tarjetas se voltean solas al pasar el cursor (o con el teclado
+   al enfocarlas), sin necesidad de clic */
+.feature-flip:hover .flip-card-inner,
+.feature-flip:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.feature-item-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.form-container {
+    max-width: 450px;
+    margin: 0 auto;
+    background: #fdfdfd;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #E2A000;
+    box-shadow: 0 0 5px rgba(226, 160, 0, 0.3);
+}
+
+footer {
+    background-color: #2D4D29;
+    color: white;
+    padding: 50px 20px 0;
+    margin-top: 50px;
+}
+
+.footer-contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 35px;
+    text-align: left;
+    padding-bottom: 35px;
+}
+
+.footer-col h5 {
+    color: #E2A000;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.footer-col p {
+    color: #dfe9dc;
+    line-height: 1.6;
+    margin: 0 0 8px;
+    font-size: 0.95em;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.footer-logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.footer-logo span {
+    font-weight: 800;
+    font-size: 1.15em;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #dfe9dc;
+    text-decoration: none;
+    font-size: 0.95em;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: #E2A000;
+    background: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.footer-social-link:hover {
+    background: #E2A000;
+    color: #2D4D29;
+    transform: translateY(-3px);
+}
+
+.footer-social-icono {
+    font-size: 1.2em;
+}
+
+.footer-inferior {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-inferior p {
+    margin: 0;
+    color: #cfe0cb;
+    font-size: 0.85em;
+}
+
+@media (max-width: 900px) {
+    .footer-contenido {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+    .footer-social-link {
+        margin: 0 auto;
+    }
+}
+.menu-acordeon {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- Tarjetas del menú semanal (flipcard: día → detalle) --- */
+.menu-flip-card {
+    height: 220px;
+}
+
+.menu-flip-card .flip-card-front,
+.menu-flip-card .flip-card-back {
+    padding: 16px 18px;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.menu-flip-card .flip-card-front {
+    background-color: #fdfdfd;
+    border-left: 5px solid #447B3E;
+    transition: box-shadow 0.2s ease;
+}
+
+.menu-flip-card:hover .flip-card-front {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.menu-flip-card .flip-card-back {
+    background-color: #386134;
+    border-left: 5px solid #E2A000;
+    overflow-y: auto; /* si el texto es muy largo, se puede desplazar en vez de cortarse */
+}
+
+.dia-nombre {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #386134;
+    min-width: 100px;
+}
+
+.dia-foto {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #eaf3e8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.dia-info {
+    display: flex;
+    align-items: center;
+}
+
+.plato-principal-preview {
+    color: #666666;
+    font-size: 0.97em;
+    padding-left: 48px;
+    margin-top: 6px;
+    display: block;
+    line-height: 1.3;
+}
+
+.menu-detalles-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.menu-detalles-bloque p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.92em;
+    line-height: 1.35;
+}
+
+.menu-detalles-bloque p strong {
+    color: #E2A000;
+}
+
+@media (max-width: 600px) {
+    .menu-flip-card {
+        height: 240px;
+    }
+}
+/* ==========================================================================
+   MEJORAS PARA EL CENTRO DE NUTRICIÓN INTELIGENTE
+   ========================================================================== */
+
+/* Contenedores Principales de Nutrición */
+.nutri-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nutri-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.nutri-card h4 {
+    color: #386134;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.nutri-card p {
+    font-size: 1.08em;
+}
+
+/* Sistema de Rejilla Educativa */
+.grid-educativo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* Semáforo de la Alimentación */
+.semaforo-botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.semaforo-botones button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.semaforo-botones button:hover {
+    opacity: 0.9;
+}
+
+#panel-semaforo {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-left: 5px solid #ccc;
+    background-color: #f8fafc;
+    border-radius: 0 8px 8px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Calculadora Avanzada de IMC */
+.imc-inputs {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.imc-inputs input, .imc-inputs select {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.05em;
+    outline: none;
+    background-color: #fff;
+}
+
+.imc-inputs input:focus {
+    border-color: #386134;
+    box-shadow: 0 0 0 3px rgba(56, 97, 52, 0.15);
+}
+
+.barra-imc {
+    display: none;
+    position: relative;
+    height: 35px;
+    border-radius: 8px;
+    margin: 30px 0;
+    overflow: visible;
+    background: #e2e8f0;
+}
+
+.barra-imc-flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.zona-bajo { background-color: #f1c40f; flex: 18.5; text-align: center; color: #fff; font-size: 0.92em; line-height: 35px; font-weight: 600; }
+.zona-normal { background-color: #2ecc71; flex: 6.4; text-align: center; color: #fff; font-size: 0.92em; line-height: 35px; font-weight: 600; }
+.zona-sobre { background-color: #e67e22; flex: 5; text-align: center; color: #fff; font-size: 0.92em; line-height: 35px; font-weight: 600; }
+.zona-obesidad { background-color: #e74c3c; flex: 15; text-align: center; color: #fff; font-size: 0.92em; line-height: 35px; font-weight: 600; }
+
+#indicador-imc {
+    position: absolute;
+    top: -5px;
+    width: 4px;
+    height: 45px;
+    background-color: #2c3e50;
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#indicador-imc::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -6px;
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #2c3e50 transparent;
+    display: block;
+    width: 0;
+}
+
+#resultado-imc-nuevo {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* Quiz Dinámico de Nutrición */
+.quiz-container {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+.opciones-quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-opcion {
+    padding: 14px 20px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-opcion:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.btn-opcion.correcto {
+    background-color: #d4edda !important;
+    border-color: #2ecc71 !important;
+    color: #155724 !important;
+    font-weight: 600;
+}
+
+.btn-opcion.incorrecto {
+    background-color: #f8d7da !important;
+    border-color: #e74c3c !important;
+    color: #721c24 !important;
+}
+
+#explicacion-quiz {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.6;
+    display: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ========================================== */
+/* ESTILOS DEL CHATBOT FLOTANTE (NUTRIBOT)    */
+/* ========================================== --> */
+.chatbot-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999; /* Garantiza que siempre esté por encima de todo */
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Botón flotante inicial */
+.chatbot-toggle {
+    background-color: #E2A000;
+    color: #386134;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.05);
+    background-color: #FFB800;
+}
+
+/* Caja de Chat principal */
+.chatbot-box {
+    width: 350px;
+    height: 450px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #eee;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    animation: slideUpChat 0.3s ease;
+}
+
+@keyframes slideUpChat {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado del chat */
+.chatbot-header {
+    background-color: #386134;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h4 {
+    margin: 0;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+/* Área de mensajes */
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    background-color: #f7f9f7;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilos de las burbujas de diálogo */
+.msg-bot {
+    background-color: #e3ebe4;
+    color: #333;
+    padding: 10px 14px;
+    border-radius: 15px 15px 15px 0px;
+    align-self: flex-start;
+    max-width: 85%;
+    font-size: 1em;
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.msg-user {
+    background-color: #447B3E;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 15px 15px 0px 15px;
+    align-self: flex-end;
+    max-width: 85%;
+    font-size: 1em;
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Área inferior de entrada de texto */
+.chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    gap: 8px;
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+.chatbot-input-area input:focus {
+    border-color: #447B3E;
+}
+
+.chatbot-input-area button {
+    background-color: #386134;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.chatbot-input-area button:hover {
+    background-color: #447B3E;
+}
+/* ========================================================== */
+/* ESTILOS DEL CHATBOT FLOTANTE (NUTRIBOT)                    */
+/* ========================================================== */
+.chatbot-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999; /* Garantiza que siempre esté por encima del contenido */
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Botón flotante inicial */
+.chatbot-toggle {
+    background-color: #E2A000; /* Color dorado para resaltar */
+    color: #386134; /* Color verde oscuro para el texto */
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.05);
+    background-color: #FFB800;
+}
+
+/* Caja de Chat principal */
+.chatbot-box {
+    width: 350px;
+    height: 450px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #eee;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    animation: slideUpChat 0.3s ease;
+}
+
+@keyframes slideUpChat {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado del chat */
+.chatbot-header {
+    background-color: #386134; /* Color verde oscuro */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h4 {
+    margin: 0;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+/* Área de mensajes */
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    background-color: #f7f9f7;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilos de las burbujas de diálogo */
+.msg-bot {
+    background-color: #e3ebe4;
+    color: #333;
+    padding: 10px 14px;
+    border-radius: 15px 15px 15px 0px;
+    align-self: flex-start;
+    max-width: 85%;
+    font-size: 1em;
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.msg-user {
+    background-color: #447B3E; /* Color verde */
+    color: white;
+    padding: 10px 14px;
+    border-radius: 15px 15px 0px 15px;
+    align-self: flex-end;
+    max-width: 85%;
+    font-size: 1em;
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Área inferior de entrada de texto */
+.chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    gap: 8px;
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+.chatbot-input-area input:focus {
+    border-color: #447B3E;
+}
+
+.chatbot-input-area button {
+    background-color: #386134;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.chatbot-input-area button:hover {
+    background-color: #447B3E;
+}
+/* --- CORRECCIÓN PARA EL CARRUSEL EN HERO --- */
+.hero {
+    position: relative;
+    padding: 150px 20px;
+    text-align: center;
+    color: white;
+    overflow: hidden; 
+}
+
+/* Capa oscura fija sobre el carrusel: garantiza que el slogan y el
+   texto se lean nítidos sin importar qué tan clara sea la foto de fondo */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.65) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- CARRUSEL HERO (7 IMÁGENES) --- */
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 700%; /* Cada imagen toma 100%, 7 imágenes = 700% */
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    /* 4s por imagen, 7 imágenes = 28s por vuelta completa */
+    animation: slideHero 28s infinite;
+}
+
+.hero-carousel img {
+    width: 14.2857%; /* 100% dividido entre 7 imágenes */
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@keyframes slideHero {
+    0%, 10.71%   { transform: translateX(0); }
+    14.29%, 25%  { transform: translateX(-14.29%); }
+    28.57%, 39.29%  { transform: translateX(-28.57%); }
+    42.86%, 53.57%  { transform: translateX(-42.86%); }
+    57.14%, 67.86%  { transform: translateX(-57.14%); }
+    71.43%, 82.14%  { transform: translateX(-71.43%); }
+    85.71%, 100% { transform: translateX(-85.71%); }
+}
+/* --- Estilos para el Menú Escolar PAE (4 semanas plegables, 5 días por semana) --- */
+.menu-semana-bloque {
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.menu-semana-bloque:last-child {
+    margin-bottom: 0;
+}
+
+.menu-semana-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+    background-color: #eaf3e8;
+    color: #386134;
+    font-weight: 700;
+    font-size: 1.15em;
+    padding: 14px 22px;
+    user-select: none;
+}
+
+.menu-semana-titulo::-webkit-details-marker {
+    display: none;
+}
+
+.menu-semana-flecha {
+    transition: transform 0.25s ease;
+    font-size: 1.1em;
+}
+
+.menu-semana-bloque[open] .menu-semana-flecha {
+    transform: rotate(180deg);
+}
+
+.menu-semana-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Lunes a Viernes, uno al lado del otro */
+    gap: 15px;
+    padding: 20px;
+}
+
+@media (max-width: 1350px) {
+    .menu-semana-grid {
+        grid-template-columns: repeat(3, 1fr); /* Pantallas medianas: 3 columnas */
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-semana-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablets: 2 columnas */
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-semana-grid {
+        grid-template-columns: 1fr; /* Móviles: los días se apilan */
+    }
+}
+
+/* --- Tarjetas de Educación Nutricional (rediseño: más info, categoría con color, chips) --- */
+.nutriInfo-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.nutriInfo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.nutri-flip-card-v2 {
+    height: 420px;
+}
+
+.nutri-flip-card-v2 .flip-card-front,
+.nutri-flip-card-v2 .flip-card-back {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 18px rgba(27, 56, 24, 0.12);
+    transition: box-shadow 0.2s ease;
+}
+
+.nutri-flip-card-v2:hover .flip-card-front {
+    box-shadow: 0 12px 26px rgba(27, 56, 24, 0.2);
+}
+
+.nutriInfo-media {
+    position: relative;
+    height: 42%;
+    flex-shrink: 0;
+}
+
+.nutriInfo-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.nutriInfo-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--nutri-color, #386134);
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.nutriInfo-icon {
+    position: absolute;
+    bottom: -20px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--nutri-color, #386134);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nutriInfo-body {
+    padding: 26px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+}
+
+.nutriInfo-body h5 {
+    margin: 0 0 6px;
+    font-size: 1.15em;
+    color: #1e293b;
+}
+
+.nutriInfo-gancho {
+    color: #64748b;
+    font-size: 1.03em;
+    line-height: 1.4;
+    margin: 0 0 12px;
+}
+
+.nutriInfo-stat {
+    margin-top: auto;
+    background: color-mix(in srgb, var(--nutri-color, #386134) 12%, #fff);
+    border-left: 3px solid var(--nutri-color, #386134);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.nutri-flip-card-v2 .flip-card-back.nutriInfo-back {
+    background: linear-gradient(160deg, var(--nutri-color, #386134) 0%, #1B3818 100%);
+    color: #fff;
+    padding: 20px;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.nutriInfo-back h5 {
+    margin: 0 0 4px;
+    font-size: 1.12em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nutriInfo-back p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 8px 0 10px;
+}
+
+.nutriInfo-puntos {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 0.95em;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nutriInfo-puntos li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.35;
+}
+
+.nutriInfo-puntos li::before {
+    content: "✓";
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.nutriInfo-alimentos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.nutriInfo-chip {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 480px) {
+    .nutri-flip-card-v2 { height: 480px; }
+}
+/* ===== NOTICIAS / EVENTOS ===== */
+.ticker-wrapper {
+    display: flex;
+    align-items: center;
+    background: #1B3818;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 18px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    gap: 14px;
+}
+.ticker-label {
+    font-weight: 700;
+    font-size: 0.96em;
+    white-space: nowrap;
+    color: #E2A000;
+}
+.ticker-track {
+    overflow: hidden;
+    flex: 1;
+}
+.ticker-track span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tickerScroll 28s linear infinite;
+    font-size: 0.96em;
+}
+@keyframes tickerScroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+.noticia-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    border-left: 5px solid #447B3E;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+.noticia-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+.noticia-card.destacada { border-left-color: #E2A000; background: #fffdf0; }
+.noticia-card.logro { border-left-color: #9b59b6; }
+.noticia-badge {
+    display: inline-block;
+    background: #E2A000;
+    color: #1B3818;
+    font-size: 0.82em;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.logro-badge { background: #9b59b6; color: #fff; }
+.noticia-fecha {
+    font-size: 0.85em;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+.noticia-card h4 {
+    font-size: 1.1em;
+    color: #1B3818;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+}
+.noticia-card p { font-size: 0.97em; color: #555; margin: 0 0 10px 0; line-height: 1.5; }
+.noticia-meta { font-size: 0.87em; color: #888; font-weight: 600; }
+
+.evento-contador {
+    background: linear-gradient(135deg, #1B3818, #386134);
+    color: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+}
+.evento-contador h4 { margin: 0 0 18px 0; font-size: 1.2em; }
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.cd-bloque {
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 22px;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cd-bloque span { font-size: 2.2em; font-weight: 800; line-height: 1; }
+.cd-bloque small { font-size: 0.8em; color: #ccc; text-transform: uppercase; margin-top: 4px; }
+.cd-sep { font-size: 2em; font-weight: 700; opacity: 0.6; }
+
+/* ===== JUEGOS ===== */
+.juegos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.juego-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-top: 5px solid #447B3E;
+    transition: transform 0.25s ease;
+}
+.juego-card:hover { transform: translateY(-5px); }
+.juego-icono { font-size: 3.2em; margin-bottom: 10px; }
+.juego-card h4 { font-size: 1.5em; color: #1B3818; margin: 0 0 10px 0; font-weight: 700; }
+.juego-card p { font-size: 1.1em; color: #555; margin: 0 0 16px 0; line-height: 1.6; }
+
+@media (max-width: 700px) {
+    .juegos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Juego plato */
+.alimentos-disponibles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.alimento-drag {
+    font-size: 1.8em;
+    cursor: grab;
+    padding: 4px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    user-select: none;
+}
+.alimento-drag:hover { transform: scale(1.25); }
+.plato-drop-area {
+    display: flex;
+    justify-content: center;
+}
+.plato-circulo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px dashed #447B3E;
+    background: #f0faf0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Juego adivina */
+.adivina-pista-box {
+    background: linear-gradient(135deg, #f0faf0, #e8f5e9);
+    border: 2px solid #a8d5a2;
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 1em;
+    color: #2c3e50;
+    line-height: 1.55;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* Carta memoria */
+.mem-carta { transition: all 0.3s ease; }
+.mem-carta:hover { transform: scale(1.08); }
